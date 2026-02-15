@@ -1,19 +1,23 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Conscious Code</title>
-  <meta name="description" content="Business Process Automation, Governance and AI Solutions" />
-  <link rel="stylesheet" href="style.css" />
+  <title>The Conscious Code · advanced</title>
+  <meta name="description" content="Business Process Automation, Governance and AI Solutions — intelligent systems design" />
+  <!-- Google Fonts & Font Awesome (kept in HTML for simplicity) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- external CSS (separate file) -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Header -->
-  <header class="container header">
+  <!-- Sticky header with glassmorphism -->
+  <header class="header">
     <div class="logo">The Conscious Code</div>
     <nav>
       <a href="#services">Services</a>
@@ -23,42 +27,42 @@
     </nav>
   </header>
 
-  <!-- Hero -->
+  <!-- Hero with dynamic text and ambient glow -->
   <section class="hero container">
     <h1>Automating Business.<br>Governing Systems.<br>Enabling Intelligence.</h1>
     <p>
-      We design secure, scalable and intelligent systems for business
-      process automation, IT governance and AI-driven insights.
+      <i class="fas fa-bolt" style="margin-right: 10px; color: #1e5f8e;"></i>
+      Secure, scalable & intelligent — process, governance, AI.
     </p>
-    <a href="#contact" class="btn primary">Start a Conversation</a>
+    <a href="#contact" class="btn primary"><i class="fas fa-paper-plane" style="margin-right: 8px;"></i>Start a Conversation</a>
   </section>
 
-  <!-- Services -->
+  <!-- Services (cards with icons) -->
   <section id="services" class="container section">
     <h2>What We Do</h2>
     <div class="grid">
       <div class="card">
-        <h3>Automation</h3>
-        <p>Workflow automation, system integration, and process optimization.</p>
+        <h3><i class="fas fa-robot"></i> Automation</h3>
+        <p>Workflow automation, system integration, and process optimization — from legacy to cloud-native.</p>
       </div>
       <div class="card">
-        <h3>Governance</h3>
-        <p>IT governance, access control, compliance, and audit-ready systems.</p>
+        <h3><i class="fas fa-shield-alt"></i> Governance</h3>
+        <p>IT governance, access control, compliance (SOC2, GDPR), and audit-ready systems with full visibility.</p>
       </div>
       <div class="card">
-        <h3>AI Solutions</h3>
-        <p>Predictive analytics, intelligent reporting, and decision support.</p>
+        <h3><i class="fas fa-brain"></i> AI Solutions</h3>
+        <p>Predictive analytics, intelligent reporting, LLM orchestration, and decision support tailored to your data.</p>
       </div>
     </div>
   </section>
 
-  <!-- Solutions -->
+  <!-- Solutions (elevated list) -->
   <section id="solutions" class="container section light">
     <h2>Solutions</h2>
     <ul class="list">
-      <li>Enterprise Process Automation</li>
-      <li>Data-Driven Governance Platforms</li>
-      <li>AI-Enabled Operational Intelligence</li>
+      <li>Enterprise Process Automation — low‑code & custom</li>
+      <li>Data-Driven Governance Platforms — real‑time risk & policy</li>
+      <li>AI‑Enabled Operational Intelligence — forecasting & insights</li>
     </ul>
   </section>
 
@@ -66,16 +70,38 @@
   <section id="about" class="container section">
     <h2>About</h2>
     <p>
+      <i class="fas fa-code" style="color: #1e5f8e; margin-right: 10px;"></i>
       The Conscious Code is built by technologists focused on creating
       responsible, transparent, and intelligent digital systems.
     </p>
   </section>
 
-  <!-- Contact -->
+  <!-- Contact + interactive form -->
   <section id="contact" class="container section light">
     <h2>Contact</h2>
-    <p>Email: <a href="mailto:info@theconsciouscode.com">info@theconsciouscode.com</a></p>
-    <p>LinkedIn: Coming soon</p>
+    <p><i class="fas fa-envelope" style="color: #1e5f8e;"></i> Email: <a href="mailto:info@theconsciouscode.com">info@theconsciouscode.com</a></p>
+    <p><i class="fab fa-linkedin" style="color: #1e5f8e;"></i> LinkedIn: <a href="#">/company/the-conscious-code</a> (coming soon)</p>
+    
+    <!-- simple form (no js, just ui) -->
+    <div class="contact-form">
+      <form action="#" method="post">
+        <div class="form-row">
+          <div class="input-group">
+            <label for="name">Your name</label>
+            <input type="text" id="name" name="name" placeholder="Jane Doe">
+          </div>
+          <div class="input-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="hello@domain.com">
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="3" placeholder="Tell us about your project..."></textarea>
+        </div>
+        <button type="submit" class="btn-block"><i class="fas fa-rocket"></i> Send message</button>
+      </form>
+    </div>
   </section>
 
   <!-- Footer -->
