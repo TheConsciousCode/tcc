@@ -47,6 +47,26 @@ nav.scrolled{background:rgba(232,243,250,.95);backdrop-filter:blur(14px);box-sha
 .nav-inner{display:flex;align-items:center;justify-content:space-between;height:70px;}
 .wordmark{font-family:var(--serif);font-size:1.1rem;font-weight:400;color:var(--ink);}
 .wordmark em{font-style:italic;color:var(--blue);}
+  .brand {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.motto {
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--hint);
+  margin-top: 3px;
+}
+
+@media(max-width:768px){
+  .motto{
+    display:none;
+  }
+}
 .nav-menu{list-style:none;display:flex;align-items:center;gap:36px;}
 .nav-menu a{font-size:12px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:var(--sub);transition:color .2s;}
 .nav-menu a:hover{color:var(--ink);}
@@ -195,7 +215,10 @@ footer{background:var(--navy);padding:56px 0 32px;}
 <nav id="nav">
   <div class="wrap">
     <div class="nav-inner">
-      <div class="wordmark">The <em>Conscious</em> Code</div>
+      <div class="brand">
+  <div class="wordmark">The <em>Conscious</em> Code</div>
+  <div class="motto">AI Automation & Compliance Systems for Regulated Enterprises</div>
+   </div>
       <ul class="nav-menu">
         <li><a href="#services">Services</a></li>
         <li><a href="#work">Work</a></li>
