@@ -96,9 +96,42 @@ h1 em{font-style:italic;color:var(--blue);}
 #trust{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:0;}
 .trust-row{display:flex;align-items:center;height:62px;gap:0;}
 .trust-lbl{font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--hint);padding-right:32px;border-right:1px solid var(--line);margin-right:32px;white-space:nowrap;flex-shrink:0;}
-.tlogos{display:flex;gap:36px;flex-wrap:wrap;align-items:center;}
-.tlogo{font-size:11.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:rgba(10,30,60,.2);transition:color .2s;}
-.tlogo:hover{color:var(--hint);}
+.tlogos{
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+
+.tlogo{
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:rgba(10,30,60,.35);
+  padding:6px 0;
+  position:relative;
+  transition:all .25s ease;
+}
+
+.tlogo::after{
+  content:'';
+  position:absolute;
+  left:0;
+  bottom:-4px;
+  width:0%;
+  height:2px;
+  background:var(--blue);
+  transition:width .25s ease;
+}
+
+.tlogo:hover{
+  color:var(--navy);
+}
+
+.tlogo:hover::after{
+  width:100%;
+}
 
 /* SERVICES */
 #services{padding:96px 0;}
@@ -252,17 +285,14 @@ footer{background:var(--navy);padding:56px 0 32px;}
 
 <section id="trust">
   <div class="wrap">
-    <div class="trust-row">
-      <span class="trust-lbl">Integrates with</span>
-      <div class="tlogos">
-        <span class="tlogo">Salesforce</span>
-        <span class="tlogo">Microsoft Azure</span>
-        <span class="tlogo">AWS</span>
-        <span class="tlogo">Snowflake</span>
-        <span class="tlogo">ServiceNow</span>
-        <span class="tlogo">Power Platform</span>
-      </div>
-    </div>
+    <div class="tlogos">
+    <div class="tlogo-card">Salesforce</div>
+    <div class="tlogo-card">Microsoft Azure</div>
+   <div class="tlogo-card">AWS</div>
+   <div class="tlogo-card">Snowflake</div>
+   <div class="tlogo-card">ServiceNow</div>
+   <div class="tlogo-card">Power Platform</div>
+   </div>    </div>
   </div>
 </section>
 
