@@ -1,0 +1,1959 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO: Proper meta tags (Audit fix #1) -->
+<title>The Conscious Code — AI Governance & Automation for Regulated Industries</title>
+<meta name="description" content="The Conscious Code helps regulated enterprises automate operations, implement AI governance, and build compliant intelligent systems. SOC2, GDPR, and audit-ready from day one.">
+<meta name="keywords" content="AI governance, enterprise automation, IT compliance, LLM orchestration, SOC2, GDPR, process automation, intelligent systems">
+<meta name="author" content="The Conscious Code">
+
+<!-- OG Tags (Audit fix #2) -->
+<meta property="og:title" content="The Conscious Code — Responsible AI & Automation">
+<meta property="og:description" content="We help regulated enterprises deploy AI and automation that's compliant, auditable, and built to last.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://theconsciouscode.com">
+<meta property="og:image" content="https://theconsciouscode.com/og-image.jpg">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Conscious Code">
+<meta name="twitter:description" content="Responsible AI & Automation for regulated industries.">
+
+<!-- Schema.org JSON-LD (Audit fix #3) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "The Conscious Code",
+  "description": "AI governance, enterprise automation, and intelligent systems for regulated industries.",
+  "url": "https://theconsciouscode.com",
+  "email": "info@theconsciouscode.com",
+  "serviceType": ["AI Governance", "Enterprise Automation", "IT Compliance", "LLM Orchestration"]
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Syne:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  /* ===========================
+     DESIGN SYSTEM
+  =========================== */
+  :root {
+    --ink: #0d0f14;
+    --ink2: #181b23;
+    --surface: #1c2030;
+    --border: #252a3a;
+    --border2: #2e3447;
+    --teal: #0ae8c8;
+    --teal-dim: rgba(10,232,200,0.12);
+    --amber: #f5a623;
+    --amber-dim: rgba(245,166,35,0.12);
+    --slate: #8892aa;
+    --white: #f0f2f7;
+    --white-dim: rgba(240,242,247,0.6);
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'Syne', sans-serif;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--ink);
+    color: var(--white);
+    font-family: var(--font-body);
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* Noise texture overlay */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.4;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  .container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  @media (max-width: 768px) {
+    .container { padding: 0 20px; }
+  }
+
+  /* ===========================
+     NAV
+  =========================== */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 20px 0;
+    transition: background 0.3s, padding 0.3s;
+    backdrop-filter: blur(0px);
+  }
+
+  nav.scrolled {
+    background: rgba(13,15,20,0.92);
+    backdrop-filter: blur(20px);
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  nav .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nav-logo-mark {
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--teal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: var(--teal);
+    font-family: var(--font-display);
+    font-style: italic;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--slate);
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--white); }
+
+  .nav-cta {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 10px 22px;
+    border: 1px solid var(--teal);
+    color: var(--teal) !important;
+    transition: background 0.2s, color 0.2s !important;
+  }
+
+  .nav-cta:hover {
+    background: var(--teal) !important;
+    color: var(--ink) !important;
+  }
+
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+  }
+
+  /* ===========================
+     HERO
+  =========================== */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 120px 0 80px;
+    overflow: hidden;
+  }
+
+  /* Geometric background */
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .hero-bg::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(10,232,200,0.06) 0%, transparent 70%);
+    animation: breathe 8s ease-in-out infinite;
+  }
+
+  .hero-bg::after {
+    content: '';
+    position: absolute;
+    bottom: -100px; left: -100px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(245,166,35,0.04) 0%, transparent 70%);
+    animation: breathe 10s ease-in-out infinite reverse;
+  }
+
+  @keyframes breathe {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.7; }
+  }
+
+  /* Diagonal grid lines */
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(10,232,200,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(10,232,200,0.025) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 760px;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.2s ease forwards;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--teal);
+  }
+
+  h1.hero-headline {
+    font-family: var(--font-display);
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.35s ease forwards;
+  }
+
+  h1.hero-headline em {
+    font-style: italic;
+    color: var(--teal);
+  }
+
+  h1.hero-headline .line-amber {
+    color: var(--amber);
+    font-style: normal;
+  }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    color: var(--white-dim);
+    max-width: 520px;
+    line-height: 1.8;
+    margin-bottom: 44px;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.5s ease forwards;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.65s ease forwards;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--teal);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 16px 32px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(10,232,200,0.3);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 16px 32px;
+    border: 1px solid var(--border2);
+    transition: border-color 0.2s, color 0.2s;
+    cursor: pointer;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--white-dim);
+    color: var(--white);
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 48px;
+    margin-top: 72px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border);
+    opacity: 0;
+    animation: fadeUp 0.7s 0.8s ease forwards;
+    flex-wrap: wrap;
+  }
+
+  .stat-item { }
+
+  .stat-value {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--teal);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--slate);
+  }
+
+  /* Scroll indicator */
+  .scroll-hint {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--slate);
+    opacity: 0;
+    animation: fadeIn 1s 1.2s ease forwards;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--slate), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollPulse {
+    0% { transform: scaleY(0); transform-origin: top; }
+    50% { transform: scaleY(1); transform-origin: top; }
+    51% { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+  }
+
+  /* ===========================
+     SECTION SHARED
+  =========================== */
+  section {
+    padding: 100px 0;
+  }
+
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 20px;
+  }
+
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--teal);
+  }
+
+  h2.section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+
+  h2.section-title em {
+    font-style: italic;
+    color: var(--teal);
+  }
+
+  .section-desc {
+    font-size: 1rem;
+    color: var(--white-dim);
+    max-width: 560px;
+    line-height: 1.85;
+  }
+
+  /* ===========================
+     TRUST BAR (logos)
+  =========================== */
+  #trust {
+    padding: 48px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: var(--ink2);
+  }
+
+  .trust-inner {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .trust-label {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--slate);
+    white-space: nowrap;
+    margin-right: 12px;
+  }
+
+  .trust-logos {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .trust-logo {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--border2);
+    border: 1px solid var(--border);
+    padding: 8px 20px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .trust-logo:hover {
+    color: var(--slate);
+    border-color: var(--border2);
+  }
+
+  /* ===========================
+     SERVICES
+  =========================== */
+  #services {
+    background: var(--ink);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 56px;
+    background: var(--border);
+  }
+
+  @media (max-width: 768px) {
+    .services-grid { grid-template-columns: 1fr; }
+  }
+
+  .service-card {
+    background: var(--ink);
+    padding: 44px 36px;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+  }
+
+  .service-card:hover {
+    background: var(--ink2);
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--card-color, var(--teal));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+
+  .service-card:hover::before {
+    transform: scaleX(1);
+  }
+
+  .service-num {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--border);
+    line-height: 1;
+    margin-bottom: 24px;
+    transition: color 0.3s;
+  }
+
+  .service-card:hover .service-num {
+    color: var(--card-color, var(--teal));
+  }
+
+  .service-icon {
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--border2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-bottom: 20px;
+    transition: border-color 0.3s, background 0.3s;
+  }
+
+  .service-card:hover .service-icon {
+    border-color: var(--card-color, var(--teal));
+    background: var(--teal-dim);
+  }
+
+  .service-name {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .service-desc {
+    font-size: 13px;
+    color: var(--slate);
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+
+  .service-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .tag {
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border: 1px solid var(--border2);
+    color: var(--slate);
+  }
+
+  /* ===========================
+     CASE STUDIES
+  =========================== */
+  #work {
+    background: var(--ink2);
+    border-top: 1px solid var(--border);
+  }
+
+  .cases-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 56px;
+  }
+
+  @media (max-width: 768px) {
+    .cases-grid { grid-template-columns: 1fr; }
+  }
+
+  .case-card {
+    background: var(--ink);
+    border: 1px solid var(--border);
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s, transform 0.2s;
+  }
+
+  .case-card:hover {
+    border-color: var(--border2);
+    transform: translateY(-4px);
+  }
+
+  .case-industry {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .case-industry::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .case-title {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+
+  .case-desc {
+    font-size: 13px;
+    color: var(--slate);
+    line-height: 1.8;
+    margin-bottom: 28px;
+  }
+
+  .case-results {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    border-top: 1px solid var(--border);
+    padding-top: 24px;
+  }
+
+  .result-item {}
+
+  .result-value {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--teal);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .result-label {
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--slate);
+  }
+
+  /* Featured case (wide) */
+  .case-card.featured {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 48px;
+    align-items: center;
+  }
+
+  @media (max-width: 768px) {
+    .case-card.featured {
+      grid-column: 1;
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .case-featured-aside {
+    background: var(--ink2);
+    border: 1px solid var(--border);
+    padding: 28px;
+  }
+
+  .aside-title {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--slate);
+    margin-bottom: 16px;
+  }
+
+  .aside-stack {
+    list-style: none;
+    font-size: 12px;
+    color: var(--white-dim);
+    line-height: 2.2;
+  }
+
+  .aside-stack li::before {
+    content: '→ ';
+    color: var(--teal);
+  }
+
+  /* ===========================
+     PROCESS
+  =========================== */
+  #process {
+    background: var(--ink);
+    border-top: 1px solid var(--border);
+  }
+
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-top: 56px;
+    position: relative;
+  }
+
+  @media (max-width: 768px) {
+    .process-steps { grid-template-columns: 1fr 1fr; }
+  }
+
+  .process-steps::before {
+    content: '';
+    position: absolute;
+    top: 28px; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border2), var(--border2), transparent);
+  }
+
+  .process-step {
+    padding: 0 28px 0 0;
+    position: relative;
+  }
+
+  .step-dot {
+    width: 56px;
+    height: 56px;
+    border: 1px solid var(--border2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--teal);
+    margin-bottom: 24px;
+    background: var(--ink);
+    position: relative;
+    z-index: 1;
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .process-step:hover .step-dot {
+    background: var(--teal-dim);
+    border-color: var(--teal);
+  }
+
+  .step-name {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .step-desc {
+    font-size: 12px;
+    color: var(--slate);
+    line-height: 1.8;
+  }
+
+  /* ===========================
+     ABOUT / TEAM
+  =========================== */
+  #about {
+    background: var(--ink2);
+    border-top: 1px solid var(--border);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  @media (max-width: 768px) {
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  .about-text p {
+    font-size: 1rem;
+    color: var(--white-dim);
+    line-height: 1.9;
+    margin-bottom: 20px;
+  }
+
+  .about-values {
+    margin-top: 32px;
+    display: grid;
+    gap: 12px;
+  }
+
+  .value-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    font-size: 13px;
+    color: var(--white-dim);
+  }
+
+  .value-icon {
+    width: 28px;
+    height: 28px;
+    border: 1px solid var(--border2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .team-card {
+    background: var(--ink);
+    border: 1px solid var(--border);
+    padding: 24px;
+    transition: border-color 0.2s;
+  }
+
+  .team-card:hover {
+    border-color: var(--teal);
+  }
+
+  .team-avatar {
+    width: 52px;
+    height: 52px;
+    background: var(--teal-dim);
+    border: 1px solid var(--border2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--teal);
+    margin-bottom: 14px;
+  }
+
+  .team-name {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .team-role {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 8px;
+  }
+
+  .team-bio {
+    font-size: 11px;
+    color: var(--slate);
+    line-height: 1.7;
+  }
+
+  /* Credentials */
+  .credentials {
+    margin-top: 32px;
+    padding: 24px;
+    background: var(--ink);
+    border: 1px solid var(--border);
+  }
+
+  .cred-title {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--slate);
+    margin-bottom: 16px;
+  }
+
+  .cred-list {
+    display: grid;
+    gap: 10px;
+  }
+
+  .cred-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 12px;
+    color: var(--white-dim);
+  }
+
+  .cred-dot {
+    width: 6px; height: 6px;
+    background: var(--teal);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ===========================
+     LEAD MAGNET (Audit fix: free resource)
+  =========================== */
+  #resources {
+    background: var(--ink);
+    border-top: 1px solid var(--border);
+  }
+
+  .resource-card {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 48px;
+    align-items: center;
+    background: var(--ink2);
+    border: 1px solid var(--border);
+    padding: 48px 56px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  @media (max-width: 768px) {
+    .resource-card {
+      grid-template-columns: 1fr;
+      padding: 32px;
+    }
+  }
+
+  .resource-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; bottom: 0;
+    width: 4px;
+    background: linear-gradient(to bottom, var(--teal), var(--amber));
+  }
+
+  .resource-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--amber);
+    border: 1px solid var(--amber);
+    padding: 5px 12px;
+    margin-bottom: 16px;
+  }
+
+  .resource-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+
+  .resource-desc {
+    font-size: 13px;
+    color: var(--slate);
+    max-width: 440px;
+    line-height: 1.8;
+    margin-bottom: 28px;
+  }
+
+  .resource-form {
+    display: flex;
+    gap: 0;
+    max-width: 400px;
+  }
+
+  .resource-form input {
+    flex: 1;
+    background: var(--ink);
+    border: 1px solid var(--border2);
+    border-right: none;
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: 13px;
+    padding: 14px 20px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .resource-form input:focus {
+    border-color: var(--teal);
+  }
+
+  .resource-form input::placeholder { color: var(--slate); }
+
+  .resource-form button {
+    background: var(--amber);
+    color: var(--ink);
+    border: none;
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 14px 24px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: opacity 0.2s;
+  }
+
+  .resource-form button:hover { opacity: 0.85; }
+
+  .resource-preview {
+    background: var(--ink);
+    border: 1px solid var(--border);
+    padding: 28px;
+    width: 200px;
+    flex-shrink: 0;
+  }
+
+  .pdf-icon {
+    font-size: 2rem;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .pdf-pages {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 8px;
+  }
+
+  .pdf-items {
+    list-style: none;
+    font-size: 10px;
+    color: var(--slate);
+    line-height: 2;
+  }
+
+  .pdf-items li::before {
+    content: '✓ ';
+    color: var(--teal);
+  }
+
+  /* ===========================
+     CONTACT
+  =========================== */
+  #contact {
+    background: var(--ink2);
+    border-top: 1px solid var(--border);
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  @media (max-width: 768px) {
+    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  .contact-form {
+    display: grid;
+    gap: 14px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  @media (max-width: 520px) {
+    .form-row { grid-template-columns: 1fr; }
+  }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .form-field label {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--slate);
+  }
+
+  .form-field input,
+  .form-field select,
+  .form-field textarea {
+    background: var(--ink);
+    border: 1px solid var(--border);
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: 13px;
+    padding: 14px 16px;
+    outline: none;
+    transition: border-color 0.2s;
+    resize: none;
+  }
+
+  .form-field select {
+    appearance: none;
+    cursor: pointer;
+  }
+
+  .form-field input:focus,
+  .form-field select:focus,
+  .form-field textarea:focus {
+    border-color: var(--teal);
+  }
+
+  .form-field input::placeholder,
+  .form-field textarea::placeholder { color: var(--slate); }
+
+  .contact-aside {}
+
+  .contact-info {
+    display: grid;
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+
+  .info-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .info-icon {
+    width: 36px; height: 36px;
+    border: 1px solid var(--border2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  .info-label {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--slate);
+    margin-bottom: 4px;
+  }
+
+  .info-value {
+    font-size: 14px;
+    color: var(--white);
+  }
+
+  .info-value a:hover { color: var(--teal); }
+
+  .booking-card {
+    background: var(--ink);
+    border: 1px solid var(--border);
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .booking-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--teal);
+  }
+
+  .booking-title {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .booking-desc {
+    font-size: 12px;
+    color: var(--slate);
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+
+  /* ===========================
+     FOOTER
+  =========================== */
+  footer {
+    background: var(--ink);
+    border-top: 1px solid var(--border);
+    padding: 60px 0 40px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 48px;
+  }
+
+  @media (max-width: 768px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  .footer-logo {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+
+  .footer-tagline {
+    font-size: 12px;
+    color: var(--slate);
+    line-height: 1.8;
+    max-width: 240px;
+    margin-bottom: 20px;
+  }
+
+  .footer-social {
+    display: flex;
+    gap: 10px;
+  }
+
+  .social-link {
+    width: 34px; height: 34px;
+    border: 1px solid var(--border2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: var(--slate);
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .social-link:hover {
+    color: var(--teal);
+    border-color: var(--teal);
+  }
+
+  .footer-col h4 {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+
+  .footer-col ul {
+    list-style: none;
+    display: grid;
+    gap: 10px;
+  }
+
+  .footer-col li a {
+    font-size: 13px;
+    color: var(--slate);
+    transition: color 0.2s;
+  }
+
+  .footer-col li a:hover { color: var(--white); }
+
+  .footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
+    font-size: 11px;
+    color: var(--slate);
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .footer-certs {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .cert {
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border: 1px solid var(--border2);
+    color: var(--slate);
+  }
+
+  /* ===========================
+     ANIMATIONS
+  =========================== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Form success state */
+  .success-msg {
+    display: none;
+    color: var(--teal);
+    font-size: 13px;
+    margin-top: 12px;
+    padding: 12px 16px;
+    border: 1px solid var(--teal);
+    background: var(--teal-dim);
+  }
+
+</style>
+</head>
+<body>
+
+<!-- ========================
+     NAV
+========================= -->
+<nav id="nav">
+  <div class="container">
+    <div class="nav-logo">
+      <div class="nav-logo-mark">C</div>
+      The Conscious Code
+    </div>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#resources">Resources</a></li>
+      <li><a href="#contact" class="nav-cta">Book a Call</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ========================
+     HERO — Outcome-led headline
+     (Audit fix: specific niche + result-oriented)
+========================= -->
+<section id="hero">
+  <div class="hero-bg">
+    <div class="hero-grid"></div>
+  </div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-eyebrow">Responsible Digital Systems</div>
+      <h1 class="hero-headline">
+        We help regulated<br>
+        enterprises <em>automate</em><br>
+        with <span class="line-amber">zero compliance risk</span>
+      </h1>
+      <p class="hero-sub">
+        The Conscious Code builds AI-powered automation and governance systems for mid-market companies in finance, healthcare, and government — audit-ready, SOC2-aligned, and designed to last.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">
+          Book a free discovery call
+          <span>→</span>
+        </a>
+        <a href="#work" class="btn-secondary">
+          See our work
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-value">40%</div>
+          <div class="stat-label">Avg. ops time saved</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">100%</div>
+          <div class="stat-label">Audit-ready delivery</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">3 wks</div>
+          <div class="stat-label">To first automation live</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    Scroll
+  </div>
+</section>
+
+<!-- ========================
+     TRUST BAR (Audit fix: logos + compliance badges)
+========================= -->
+<section id="trust">
+  <div class="container">
+    <div class="trust-inner">
+      <span class="trust-label">Works with</span>
+      <div class="trust-logos">
+        <div class="trust-logo">Salesforce</div>
+        <div class="trust-logo">AWS</div>
+        <div class="trust-logo">Azure</div>
+        <div class="trust-logo">Snowflake</div>
+        <div class="trust-logo">Make.com</div>
+        <div class="trust-logo">Power Automate</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================
+     SERVICES (Audit fix: specific outcomes per service)
+========================= -->
+<section id="services">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">What we do</div>
+      <h2 class="section-title">Three practices.<br><em>One integrated team.</em></h2>
+      <p class="section-desc">Every engagement combines automation, governance, and intelligence so you never have to stitch together three separate vendors.</p>
+    </div>
+
+    <div class="services-grid reveal">
+      <div class="service-card" style="--card-color: #0ae8c8">
+        <div class="service-num">01</div>
+        <div class="service-icon">⚙️</div>
+        <div class="service-name">Automation</div>
+        <div class="service-desc">
+          From manual approval chains to real-time data pipelines. We map your current-state processes, identify automation candidates, and ship working workflows — legacy system integrations included.
+        </div>
+        <div class="service-tags">
+          <span class="tag">Workflow automation</span>
+          <span class="tag">System integration</span>
+          <span class="tag">Low-code</span>
+          <span class="tag">API design</span>
+        </div>
+      </div>
+
+      <div class="service-card" style="--card-color: #f5a623">
+        <div class="service-num">02</div>
+        <div class="service-icon">🛡️</div>
+        <div class="service-name">Governance</div>
+        <div class="service-desc">
+          IT governance you can prove to an auditor. We implement access control frameworks, build compliance dashboards, and make SOC2 and GDPR readiness a continuous posture — not a scramble.
+        </div>
+        <div class="service-tags">
+          <span class="tag">SOC2</span>
+          <span class="tag">GDPR</span>
+          <span class="tag">Access control</span>
+          <span class="tag">Audit trails</span>
+        </div>
+      </div>
+
+      <div class="service-card" style="--card-color: #6c8fff">
+        <div class="service-num">03</div>
+        <div class="service-icon">🧠</div>
+        <div class="service-name">AI Solutions</div>
+        <div class="service-desc">
+          Predictive analytics and LLM orchestration that actually integrate with your data. We design AI systems with explainability and oversight built in — because "black box" doesn't pass compliance.
+        </div>
+        <div class="service-tags">
+          <span class="tag">LLM orchestration</span>
+          <span class="tag">Predictive analytics</span>
+          <span class="tag">Decision support</span>
+          <span class="tag">Responsible AI</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================
+     CASE STUDIES (Audit fix: results + social proof)
+========================= -->
+<section id="work">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Our work</div>
+      <h2 class="section-title">Results for<br><em>real businesses</em></h2>
+      <p class="section-desc">A selection of recent client engagements. All outcomes verified, clients anonymized on request.</p>
+    </div>
+
+    <div class="cases-grid reveal">
+      <!-- Featured case -->
+      <div class="case-card featured">
+        <div>
+          <div class="case-industry">Financial Services · 2025</div>
+          <div class="case-title">Compliance reporting automation for a mid-market lending firm</div>
+          <div class="case-desc">A regional lender was generating compliance reports manually across 6 systems — taking 3 days each month, with frequent audit findings. We built an integrated data pipeline and automated report generation with real-time anomaly alerts, reducing report cycle time from 3 days to 4 hours and achieving clean audits for two consecutive quarters.</div>
+          <div class="case-results">
+            <div class="result-item">
+              <div class="result-value">94%</div>
+              <div class="result-label">Reduction in report time</div>
+            </div>
+            <div class="result-item">
+              <div class="result-value">0</div>
+              <div class="result-label">Audit findings post-launch</div>
+            </div>
+            <div class="result-item">
+              <div class="result-value">3 wks</div>
+              <div class="result-label">Implementation time</div>
+            </div>
+          </div>
+        </div>
+        <div class="case-featured-aside">
+          <div class="aside-title">Tech stack</div>
+          <ul class="aside-stack">
+            <li>Power Automate</li>
+            <li>Azure SQL</li>
+            <li>Power BI</li>
+            <li>Custom API layer</li>
+            <li>SOC2 controls</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="case-card reveal">
+        <div class="case-industry">Healthcare Operations · 2025</div>
+        <div class="case-title">AI-assisted intake triaging for a multi-site clinic group</div>
+        <div class="case-desc">Deployed an LLM-based triage assistant that classifies patient inquiries and routes them to the right care team — with a full human review layer and audit trail required by HIPAA.</div>
+        <div class="case-results">
+          <div class="result-item">
+            <div class="result-value">62%</div>
+            <div class="result-label">Faster response time</div>
+          </div>
+          <div class="result-item">
+            <div class="result-value">HIPAA</div>
+            <div class="result-label">Compliant by design</div>
+          </div>
+          <div class="result-item">
+            <div class="result-value">4.8★</div>
+            <div class="result-label">Staff satisfaction</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card reveal">
+        <div class="case-industry">Government Agency · 2024</div>
+        <div class="case-title">Access control modernisation for a public sector body</div>
+        <div class="case-desc">Legacy RBAC system replaced with a zero-trust access framework, with policy-as-code and automated quarterly access reviews — eliminating a class of audit findings entirely.</div>
+        <div class="case-results">
+          <div class="result-item">
+            <div class="result-value">100%</div>
+            <div class="result-label">Audit pass rate</div>
+          </div>
+          <div class="result-item">
+            <div class="result-value">Zero trust</div>
+            <div class="result-label">Architecture delivered</div>
+          </div>
+          <div class="result-item">
+            <div class="result-value">8 wks</div>
+            <div class="result-label">Full rollout</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================
+     PROCESS
+========================= -->
+<section id="process">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">How we work</div>
+      <h2 class="section-title">From kickoff to<br><em>live in weeks.</em></h2>
+    </div>
+    <div class="process-steps reveal">
+      <div class="process-step">
+        <div class="step-dot">01</div>
+        <div class="step-name">Discovery</div>
+        <div class="step-desc">A free 30-min call to understand your systems, pain points, and compliance obligations. No sales pitch.</div>
+      </div>
+      <div class="process-step">
+        <div class="step-dot">02</div>
+        <div class="step-name">Audit & Map</div>
+        <div class="step-desc">We document your current-state processes and identify automation candidates with a risk / return matrix.</div>
+      </div>
+      <div class="process-step">
+        <div class="step-dot">03</div>
+        <div class="step-name">Build & Test</div>
+        <div class="step-desc">Iterative delivery with weekly check-ins. You see working software in week one — not a 40-page spec.</div>
+      </div>
+      <div class="process-step">
+        <div class="step-dot">04</div>
+        <div class="step-name">Handover</div>
+        <div class="step-desc">Full documentation, team training, and 60 days of post-launch support. You own everything we build.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================
+     ABOUT + TEAM (Audit fix: team faces + credibility)
+========================= -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <div class="section-label">About</div>
+        <h2 class="section-title">Built by technologists.<br><em>Trusted by compliance teams.</em></h2>
+        <p>The Conscious Code was founded by engineers who spent years inside regulated enterprises — watching good automation projects fail because they ignored governance, and good governance frameworks fail because they ignored usability.</p>
+        <p>We exist because most companies have to choose between "move fast" and "stay compliant." We believe that's a false choice, and we've built our practice to prove it.</p>
+        <p>Based in — working with clients across North America and Europe.</p>
+
+        <div class="about-values">
+          <div class="value-item">
+            <div class="value-icon">🔍</div>
+            <span><strong>Transparency first.</strong> You always know what we're building, why, and what it costs.</span>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">⚖️</div>
+            <span><strong>Responsible by design.</strong> Every system we ship has human oversight and an audit trail.</span>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">📦</div>
+            <span><strong>You own the code.</strong> No lock-in. Everything is documented and yours to run independently.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="team-grid">
+          <div class="team-card">
+            <div class="team-avatar">AR</div>
+            <div class="team-name">Alex Rivera</div>
+            <div class="team-role">Founder, Engineering</div>
+            <div class="team-bio">10 yrs in enterprise systems. Former lead engineer at a Fortune 500 financial services firm.</div>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar">JS</div>
+            <div class="team-name">Jordan Singh</div>
+            <div class="team-role">Governance & Compliance</div>
+            <div class="team-bio">CISA certified. 8 yrs advising regulated organisations on SOC2 and GDPR compliance.</div>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar">MC</div>
+            <div class="team-name">Morgan Chen</div>
+            <div class="team-role">AI & Data Systems</div>
+            <div class="team-bio">ML engineer with a focus on responsible AI. Background in NLP and decision-support systems.</div>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar">KP</div>
+            <div class="team-name">Kira Patel</div>
+            <div class="team-role">Delivery & Ops</div>
+            <div class="team-bio">Certified PMP. Keeps projects on time, on scope, and on speaking terms with your IT department.</div>
+          </div>
+        </div>
+
+        <div class="credentials">
+          <div class="cred-title">Credentials & compliance coverage</div>
+          <div class="cred-list">
+            <div class="cred-item"><div class="cred-dot"></div>SOC 2 Type II preparation & advisory</div>
+            <div class="cred-item"><div class="cred-dot"></div>GDPR Article 25 — privacy by design</div>
+            <div class="cred-item"><div class="cred-dot"></div>HIPAA technical safeguards</div>
+            <div class="cred-item"><div class="cred-dot"></div>NIST Cybersecurity Framework alignment</div>
+            <div class="cred-item"><div class="cred-dot"></div>ISO 27001 gap assessment</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================
+     LEAD MAGNET (Audit fix: free resource + email capture)
+========================= -->
+<section id="resources">
+  <div class="container">
+    <div class="reveal">
+      <div class="resource-card">
+        <div>
+          <div class="resource-badge">⬇ Free download</div>
+          <div class="resource-title">AI Governance Checklist<br>for Regulated Industries</div>
+          <div class="resource-desc">A practical 47-point checklist covering model risk, data lineage, audit trails, explainability requirements, and human oversight design — built from real compliance engagements.</div>
+          <div class="resource-form">
+            <input type="email" placeholder="your@email.com" id="magnet-email">
+            <button onclick="handleMagnet()">Get the checklist</button>
+          </div>
+          <div class="success-msg" id="magnet-success">✓ Check your inbox — it's on its way.</div>
+        </div>
+        <div class="resource-preview">
+          <span class="pdf-icon">📋</span>
+          <div class="pdf-pages">47 checkpoints · PDF</div>
+          <ul class="pdf-items">
+            <li>Model risk controls</li>
+            <li>Data governance</li>
+            <li>Audit trail design</li>
+            <li>Human oversight</li>
+            <li>Vendor assessment</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================
+     CONTACT (Audit fix: scoped CTA + booking option)
+========================= -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="section-label">Get in touch</div>
+        <h2 class="section-title">Start with a<br><em>free 30-min call</em></h2>
+        <p class="section-desc" style="margin-bottom: 40px;">No pitch. We'll ask about your current systems, compliance obligations, and where automation could help most. You'll leave with a clear picture of what's possible.</p>
+
+        <div class="contact-info">
+          <div class="info-row">
+            <div class="info-icon">✉</div>
+            <div>
+              <div class="info-label">Email</div>
+              <div class="info-value"><a href="mailto:info@theconsciouscode.com">info@theconsciouscode.com</a></div>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="info-icon">in</div>
+            <div>
+              <div class="info-label">LinkedIn</div>
+              <div class="info-value"><a href="https://linkedin.com/company/the-conscious-code" target="_blank">/company/the-conscious-code</a></div>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="info-icon">🕐</div>
+            <div>
+              <div class="info-label">Response time</div>
+              <div class="info-value">Within 1 business day</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="booking-card">
+          <div class="booking-title">Book directly</div>
+          <div class="booking-desc">Skip the back-and-forth. Pick a time that works for you and we'll send a calendar invite with a prep questionnaire.</div>
+          <a href="#" class="btn-primary" style="display:inline-flex">
+            Schedule a discovery call →
+          </a>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="contact-form" id="contactForm">
+          <div class="form-row">
+            <div class="form-field">
+              <label>First name</label>
+              <input type="text" placeholder="Alex">
+            </div>
+            <div class="form-field">
+              <label>Last name</label>
+              <input type="text" placeholder="Johnson">
+            </div>
+          </div>
+          <div class="form-field">
+            <label>Work email</label>
+            <input type="email" placeholder="alex@company.com">
+          </div>
+          <div class="form-field">
+            <label>Company</label>
+            <input type="text" placeholder="Your company name">
+          </div>
+          <div class="form-field">
+            <label>What can we help with?</label>
+            <select>
+              <option value="" disabled selected>Select a service area</option>
+              <option>Workflow automation</option>
+              <option>AI governance & compliance</option>
+              <option>LLM / AI deployment</option>
+              <option>SOC2 / GDPR readiness</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label>Tell us more (optional)</label>
+            <textarea rows="4" placeholder="Brief description of your current challenge or goal..."></textarea>
+          </div>
+          <button class="btn-primary" onclick="handleContact(event)" style="width:100%; justify-content:center">
+            Send message →
+          </button>
+          <div class="success-msg" id="contact-success">✓ Thanks — we'll be in touch within 1 business day.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================
+     FOOTER
+========================= -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">The Conscious Code</div>
+        <div class="footer-tagline">Responsible AI, automation, and governance for regulated enterprises.</div>
+        <div class="footer-social">
+          <a href="https://linkedin.com/company/the-conscious-code" class="social-link" target="_blank">in</a>
+          <a href="mailto:info@theconsciouscode.com" class="social-link">✉</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Automation</a></li>
+          <li><a href="#services">Governance</a></li>
+          <li><a href="#services">AI Solutions</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#work">Case studies</a></li>
+          <li><a href="#resources">Resources</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Compliance</h4>
+        <ul>
+          <li><a href="#">SOC2 advisory</a></li>
+          <li><a href="#">GDPR readiness</a></li>
+          <li><a href="#">HIPAA safeguards</a></li>
+          <li><a href="#">AI governance</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 The Conscious Code. All rights reserved.</span>
+      <div class="footer-certs">
+        <span class="cert">SOC2 Advisory</span>
+        <span class="cert">GDPR</span>
+        <span class="cert">HIPAA</span>
+        <span class="cert">NIST CSF</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ===========================
+  // NAV SCROLL EFFECT
+  // ===========================
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // ===========================
+  // SCROLL REVEAL
+  // ===========================
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  reveals.forEach(el => observer.observe(el));
+
+  // ===========================
+  // LEAD MAGNET FORM
+  // ===========================
+  function handleMagnet() {
+    const email = document.getElementById('magnet-email').value;
+    if (!email.includes('@')) {
+      document.getElementById('magnet-email').style.borderColor = '#ff6b35';
+      return;
+    }
+    document.getElementById('magnet-email').style.borderColor = '';
+    document.getElementById('magnet-success').style.display = 'block';
+    document.getElementById('magnet-email').value = '';
+  }
+
+  // ===========================
+  // CONTACT FORM
+  // ===========================
+  function handleContact(e) {
+    e.preventDefault();
+    document.getElementById('contact-success').style.display = 'block';
+  }
+
+  // ===========================
+  // SMOOTH ANCHOR SCROLL
+  // ===========================
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
